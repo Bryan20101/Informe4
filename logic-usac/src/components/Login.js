@@ -1,46 +1,37 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import './Login.css';
-import logo from '../assets/logo-usac.png'; // Ajusta la ruta de tu logotipo
+import logo from '../assets/logo-usac.png'; // Ajusta la ruta si fuera necesario
 
 function Login() {
-  // Control de los modales
   const [showRecoverModal, setShowRecoverModal] = useState(false);
   const [showNewPasswordModal, setShowNewPasswordModal] = useState(false);
 
-  // Abrir la ventana de "Recuperar Contraseña"
   const handleForgotPassword = (e) => {
     e.preventDefault();
     setShowRecoverModal(true);
   };
 
-  // Al hacer clic en "Recuperar", cierra la de recuperar y abre la de nueva contraseña
   const handleRecover = () => {
     setShowRecoverModal(false);
     setShowNewPasswordModal(true);
   };
 
-  // Al hacer clic en "Completar", cierra la ventana de nueva contraseña
   const handleComplete = () => {
     setShowNewPasswordModal(false);
   };
 
-  // Cerrar la ventana de "Recuperar Contraseña" sin continuar
   const handleCloseRecoverModal = () => {
     setShowRecoverModal(false);
   };
 
-  // Cerrar la ventana de "Nueva Contraseña" sin continuar
   const handleCloseNewPasswordModal = () => {
     setShowNewPasswordModal(false);
   };
 
-  // Redirigir a la pantalla de registro
   const handleRegister = () => {
     window.location.href = '/register';
   };
 
-  // Redirigir a la pantalla de Home al iniciar sesión
   const handleLogin = (e) => {
     e.preventDefault();
     window.location.href = '/Home';
@@ -48,62 +39,56 @@ function Login() {
 
   return (
     <div className="login-container">
-      <div className="login-box">
-        {/* Encabezado con el logotipo */}
-        <div className="logo-header">
-          <img src={logo} alt="Facultad de Ingeniería USAC" />
+      {/* Imagen que contiene el logo y texto de la Facultad en un solo archivo */}
+      <img src={logo} alt="Facultad de Ingeniería USAC" className="logo-usac" />
+
+      {/* Título principal */}
+      <h2 className="title-login">INICIAR SESION INGENIERIA USAC</h2>
+
+      {/* Formulario de Login */}
+      <form className="login-form" onSubmit={handleLogin}>
+        <input
+          type="text"
+          name="cui"
+          placeholder="CUI / REGISTRO ACADÉMICO / REGISTRO PERSONAL"
+          required
+        />
+
+        <input
+          type="password"
+          name="password"
+          placeholder="Contraseña"
+          required
+        />
+
+        <div className="remember-me">
+          <input type="checkbox" id="rememberUser" />
+          <label htmlFor="rememberUser">Recordar mi Usuario</label>
         </div>
 
-        <h2>INICIAR SESIÓN INGENIERÍA USAC</h2>
+        <button type="submit" className="btn-login">
+          INICIAR SESIÓN
+        </button>
+      </form>
 
-        {/* Formulario de Login */}
-        <form className="login-form" onSubmit={handleLogin}>
-          <label htmlFor="cui">CUI / REGISTRO ACADÉMICO / REGISTRO PERSONAL</label>
-          <input
-            type="text"
-            id="cui"
-            name="cui"
-            placeholder="Ingrese su CUI o registro"
-          />
-
-          <label htmlFor="password">Contraseña</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Ingrese su contraseña"
-          />
-
-          {/* Recordar usuario */}
-          <div className="remember-me">
-            <input type="checkbox" id="rememberUser" name="rememberUser" />
-            <label htmlFor="rememberUser">Recordar mi Usuario</label>
-          </div>
-
-          {/* Botón de inicio de sesión */}
-          <button type="submit">INICIAR SESIÓN</button>
-        </form>
-
-        {/* Link de "¿Olvidó su contraseña?" y el botón de "Registrarme" */}
-        <div className="extra-links">
-          <a href="#olvido-contraseña" onClick={handleForgotPassword}>
-            ¿Olvidó su contraseña?
-          </a>
-          <button type="button" className="btn-register" onClick={handleRegister}>
-            Registrarme
-          </button>
-        </div>
+      {/* Sección de enlaces inferiores */}
+      <div className="extra-links">
+        <a href="#olvido-contraseña" onClick={handleForgotPassword}>
+          ¿Olvidó su contraseña?
+        </a>
+        {/* Elimina este botón si NO lo deseas en tu diseño final */}
+        <button type="button" className="btn-register" onClick={handleRegister}>
+          Registrarme
+        </button>
       </div>
 
       {/* Modal de RECUPERAR CONTRASEÑA */}
       {showRecoverModal && (
         <div className="modal-overlay">
           <div className="modal-box">
-            {/* Botón para cerrar la ventana */}
             <button className="close-btn" onClick={handleCloseRecoverModal}>
               &times;
             </button>
-
             <h2>Recuperar Contraseña</h2>
             <form className="modal-form">
               <div className="form-group">
@@ -128,11 +113,9 @@ function Login() {
       {showNewPasswordModal && (
         <div className="modal-overlay">
           <div className="modal-box">
-            {/* Botón para cerrar la ventana */}
             <button className="close-btn" onClick={handleCloseNewPasswordModal}>
               &times;
             </button>
-
             <h2>Nueva contraseña</h2>
             <form className="modal-form">
               <div className="form-group">

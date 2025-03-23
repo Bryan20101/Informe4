@@ -1,154 +1,148 @@
-/* src/components/CrearPublicacion.css */
-
 /* Barra de pestañas superior */
 .tab-bar {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #4e8ff1; /* Azul por defecto */
+  color: #fff;
+}
+
+/* Pestaña activa */
+.active-tab {
+  background-color: #9b4ef1; /* Lila */
+}
+
+.inicio {
+  background-color: #9b4ef1; /* Lila */
+}
+.crear {
+  background-color: #4e8ff1; /* Azul */
+}
+.perfil {
+  background-color: #4ef1ad; /* Verde */
+}
+
+.tab-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
+.tab-link:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor principal */
+.crear-pub-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Título */
+.crear-title {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Contenido principal */
+.crear-content {
+  display: flex;
+  flex-wrap: wrap; /* Para ser responsive */
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Sección izquierda */
+.crear-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Sección derecha (imagen) */
+.crear-right {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-globe {
+  width: 200px;
+  height: auto;
+}
+
+/* Sección "Seleccionar Tipo" */
+.tipo-section h3 {
+  margin-bottom: 0.5rem;
+}
+.tipo-options {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Sección "DropDown" */
+.dropdown-section h4 {
+  margin-bottom: 0.5rem;
+}
+.dropdowns {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.dropdown {
+  padding: 0.5rem;
+}
+
+/* Sección "Escribir Comentario" */
+.comentario-section {
+  margin-bottom: 1rem;
+}
+.comentario-textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  padding: 0.5rem;
+}
+
+/* Botón Publicar */
+.publicar-btn {
+  background-color: #9b4ef1;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+.publicar-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.01);
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
   .tab {
-    flex: 1;
-    text-align: center;
-    padding: 1rem 0;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #4e8ff1; /* Azul por defecto */
-    color: #fff;
+    border-radius: 0;
   }
-  
-  /* Ejemplo de color distinto para la pestaña activa */
-  .active-tab {
-    background-color: #9b4ef1; /* Lila */
-  }
-  
-  .inicio {
-    background-color: #9b4ef1; /* Lila */
-  }
-  
-  .crear {
-    background-color: #4e8ff1; /* Azul */
-  }
-  
-  .perfil {
-    background-color: #4ef1ad; /* Verde */
-  }
-  
-  /* Estilos para el enlace dentro de la pestaña */
-  .tab-link {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .tab-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Contenedor principal */
-  .crear-pub-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Título */
-  .crear-title {
-    margin: 1rem 0;
-    text-align: center;
-    font-size: 1.5rem;
-  }
-  
-  /* Contenido principal */
   .crear-content {
-    display: flex;
-    flex-wrap: wrap; /* Para ser responsive */
-    gap: 2rem;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: stretch;
   }
-  
-  /* Sección izquierda */
-  .crear-left {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  /* Sección derecha (imagen) */
-  .crear-right {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .icon-globe {
-    width: 200px;
-    height: auto;
-  }
-  
-  /* Sección "Seleccionar Tipo" */
-  .tipo-section h3 {
-    margin-bottom: 0.5rem;
-  }
-  .tipo-options {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Sección "DropDown" */
-  .dropdown-section h4 {
-    margin-bottom: 0.5rem;
-  }
-  .dropdowns {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .dropdown {
-    padding: 0.5rem;
-  }
-  
-  /* Sección "Escribir Comentario" */
-  .comentario-section {
-    margin-bottom: 1rem;
-  }
-  .comentario-textarea {
-    width: 100%;
-    min-height: 80px;
-    resize: vertical;
-    padding: 0.5rem;
-  }
-  
-  /* Botón Publicar */
-  .publicar-btn {
-    background-color: #9b4ef1;
-    color: #fff;
-    padding: 0.7rem 1.5rem;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 5px;
-  }
-  
-  .publicar-btn:hover {
-    opacity: 0.9;
-  }
-  
-  /* Responsividad */
-  @media (max-width: 600px) {
-    .tab {
-      border-radius: 0;
-    }
-    .crear-content {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  }
-  
+}
