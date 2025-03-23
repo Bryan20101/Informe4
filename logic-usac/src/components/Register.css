@@ -1,0 +1,80 @@
+/* src/components/Register.css */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .register-container {
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    /* Si deseas un borde negro como en la imagen, descomenta la siguiente línea */
+    /* border: 8px solid #000; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register-box {
+    background: #f8f8f8;
+    width: 600px; /* Ajusta el ancho a tu preferencia */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .register-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* para que luzca más redondeado */
+    background-color: #e2f0ff; /* color claro azulado */
+  }
+  
+  .btn-registrar {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.7rem;
+    background: #8e44ad; /* color púrpura */
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .btn-registrar:hover {
+    background: #732d91;
+  }
+  
