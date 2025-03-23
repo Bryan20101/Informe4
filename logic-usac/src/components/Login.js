@@ -1,3 +1,4 @@
+// src/components/Login.js
 import React, { useState } from 'react';
 import './Login.css';
 import logo from '../assets/logo-usac.png'; // Ajusta la ruta de tu logotipo
@@ -36,10 +37,13 @@ function Login() {
 
   // Redirigir a la pantalla de registro
   const handleRegister = () => {
-    // Si usas React Router con <Link> o useNavigate, puedes hacerlo:
-    // navigate('/register');
-    // Pero si prefieres la forma directa:
     window.location.href = '/register';
+  };
+
+  // Redirigir a la pantalla de Home al iniciar sesión
+  const handleLogin = (e) => {
+    e.preventDefault();
+    window.location.href = '/Home';
   };
 
   return (
@@ -53,7 +57,7 @@ function Login() {
         <h2>INICIAR SESIÓN INGENIERÍA USAC</h2>
 
         {/* Formulario de Login */}
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleLogin}>
           <label htmlFor="cui">CUI / REGISTRO ACADÉMICO / REGISTRO PERSONAL</label>
           <input
             type="text"
